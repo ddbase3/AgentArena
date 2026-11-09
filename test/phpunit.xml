@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="bootstrap.php" colors="true" failOnWarning="true" failOnRisky="true">
+  <testsuites>
+    <testsuite name="Agent Arena">
+      <directory suffix="Test.php">.</directory>
+    </testsuite>
+  </testsuites>
+  <source>
+    <include>
+      <directory suffix=".php">../src</directory>
+    </include>
+  </source>
+</phpunit>

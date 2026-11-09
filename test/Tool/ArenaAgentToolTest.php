@@ -19,6 +19,8 @@ use MissionBay\Api\IAgentTool;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
 
+require_once dirname(__DIR__) . '/bootstrap.php';
+
 /** Contract, authorization-claim and per-function mutation semantics for one MissionBay resource. */
 final class ArenaAgentToolTest extends TestCase {
 
