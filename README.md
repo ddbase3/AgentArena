@@ -208,3 +208,7 @@ nicht durch ein zweites Rendern im `finally`-Block abgebrochen.
 
 Regressionstest ohne Host: `node plugin/AgentArena/test/Display/ArenaBoardInteractionSmoke.js`.
 Der bestehende PHP-Smoketest bleibt separat ausfuehrbar und erfordert kein Node.js.
+
+## Vorbereitung historischer Datenbankmigrationen
+
+Die bestehenden Migrationsklassen dieses Moduls implementieren jetzt zusaetzlich `ILegacyDatabaseMigration` und stellen eine explizite `down(): void`-Methode bereit, die `MigrationException('Not implemented')` ausloest. Dies ist keine funktionsfaehige Rueckwaertsmigration. Die bisherige `up()`-Logik, Migrationsnamen, Versionsnummern und Provider bleiben unveraendert. Der BASE3-Migrationsrunner setzt bei bereits ausgefuehrten, markierten Migrationen ausschliesslich den Checksum-Vergleich aus. Nicht ausgefuehrte Migrationen laufen weiterhin regulaer vorwaerts und werden in `base3_migrations` protokolliert. Die Vorbereitung erfordert keine manuelle Aenderung vorhandener Datenbankdaten. Der Legacy-Marker darf erst nach bewusstem Abgleich des gespeicherten Checksums mit der finalen Datei entfernt werden.

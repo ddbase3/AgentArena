@@ -4,9 +4,11 @@ namespace AgentArena\Migration;
 
 use Base3\Database\Api\IDatabase;
 use Base3\Migration\Api\IDatabaseMigration;
+use Base3\Migration\Api\ILegacyDatabaseMigration;
+use Base3\Migration\Exception\MigrationException;
 
 /** Initial, immutable MySQL/MariaDB schema for authoritative match state. */
-final class ArenaMigration001CreateMatches implements IDatabaseMigration {
+final class ArenaMigration001CreateMatches implements IDatabaseMigration, ILegacyDatabaseMigration {
 
 	public function __construct(private readonly IDatabase $database) {}
 
@@ -28,5 +30,9 @@ final class ArenaMigration001CreateMatches implements IDatabaseMigration {
 			'updated_at DATETIME NOT NULL, ' .
 			'INDEX agentarena_owner_idx (authority, owner_id, updated_at)' .
 			') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4');
+	}
+
+	public function down(): void {
+		throw new MigrationException('Not implemented');
 	}
 }
