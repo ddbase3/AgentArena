@@ -1,11 +1,26 @@
 <?php declare(strict_types=1);
 
-namespace AgentArena\Test\Migration;
+/***********************************************************************
+ * This file is part of AgentArena for BASE3 Framework.
+ *
+ * AgentArena implements a tactical LLM-versus-human game for BASE3.
+ * It provides authoritative rules, match storage and game displays.
+ * MissionBay integrates the agent through the existing tool contracts.
+ *
+ * Developed by Daniel Dahme
+ * Licensed under GPL-3.0-or-later
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * https://base3.de
+ ***********************************************************************/
 
-use AgentArena\Migration\ArenaMatchMigrationProvider;
-use AgentArena\Migration\ArenaMigration001CreateMatches;
-use Base3\Api\IContainer;
-use Base3\Database\Api\IDatabase;
+
+namespace Base3\AgentArena\Test\Migration;
+
+use Base3\AgentArena\Migration\ArenaMatchMigrationProvider;
+use Base3\AgentArena\Migration\ArenaMigration001CreateMatches;
+use Base3\CoreFoundation\Api\IContainer;
+use Base3\CoreFoundation\Database\Api\IDatabase;
 use PHPUnit\Framework\TestCase;
 
 final class ArenaMigrationTest extends TestCase {

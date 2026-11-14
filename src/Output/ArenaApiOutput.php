@@ -1,13 +1,28 @@
 <?php declare(strict_types=1);
 
-namespace AgentArena\Output;
+/***********************************************************************
+ * This file is part of AgentArena for BASE3 Framework.
+ *
+ * AgentArena implements a tactical LLM-versus-human game for BASE3.
+ * It provides authoritative rules, match storage and game displays.
+ * MissionBay integrates the agent through the existing tool contracts.
+ *
+ * Developed by Daniel Dahme
+ * Licensed under GPL-3.0-or-later
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * https://base3.de
+ ***********************************************************************/
 
-use AgentArena\Service\ArenaAccessService;
-use AgentArena\Service\ArenaAgentTurnService;
-use AgentArena\Service\ArenaGameService;
-use Base3\Api\IMvcView;
-use Base3\Api\IOutput;
-use Base3\Api\IRequest;
+
+namespace Base3\AgentArena\Output;
+
+use Base3\AgentArena\Service\ArenaAccessService;
+use Base3\AgentArena\Service\ArenaAgentTurnService;
+use Base3\AgentArena\Service\ArenaGameService;
+use Base3\CoreFoundation\Api\IMvcView;
+use Base3\CoreFoundation\Api\IOutput;
+use Base3\CoreFoundation\Api\IRequest;
 use InvalidArgumentException;
 use RuntimeException;
 use Throwable;

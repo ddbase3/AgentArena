@@ -1,12 +1,27 @@
 <?php declare(strict_types=1);
 
-namespace AgentArena\Service;
+/***********************************************************************
+ * This file is part of AgentArena for BASE3 Framework.
+ *
+ * AgentArena implements a tactical LLM-versus-human game for BASE3.
+ * It provides authoritative rules, match storage and game displays.
+ * MissionBay integrates the agent through the existing tool contracts.
+ *
+ * Developed by Daniel Dahme
+ * Licensed under GPL-3.0-or-later
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * https://base3.de
+ ***********************************************************************/
 
-use AgentArena\Authorization\ArenaPlayFeature;
-use Base3\Authorization\Api\IAuthorizationService;
-use Base3\Authorization\Dto\AuthorizationRequest;
-use Base3\Usermanager\Api\IUsermanager;
-use Base3\Usermanager\Permission;
+
+namespace Base3\AgentArena\Service;
+
+use Base3\AgentArena\Authorization\ArenaPlayFeature;
+use Base3\CoreFoundation\Authorization\Api\IAuthorizationService;
+use Base3\CoreFoundation\Authorization\Dto\AuthorizationRequest;
+use Base3\CoreFoundation\Usermanager\Api\IUsermanager;
+use Base3\CoreFoundation\Usermanager\Permission;
 use RuntimeException;
 
 /** Resolves trusted host actor and delegates the single permission decision to its authority. */

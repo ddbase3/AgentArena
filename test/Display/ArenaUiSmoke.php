@@ -1,6 +1,21 @@
 <?php declare(strict_types=1);
 
-namespace AgentArena\Test\Display;
+/***********************************************************************
+ * This file is part of AgentArena for BASE3 Framework.
+ *
+ * AgentArena implements a tactical LLM-versus-human game for BASE3.
+ * It provides authoritative rules, match storage and game displays.
+ * MissionBay integrates the agent through the existing tool contracts.
+ *
+ * Developed by Daniel Dahme
+ * Licensed under GPL-3.0-or-later
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * https://base3.de
+ ***********************************************************************/
+
+
+namespace Base3\AgentArena\Test\Display;
 
 use RuntimeException;
 
@@ -32,7 +47,7 @@ final class ArenaUiSmoke {
 			$view = new self();
 			$view->_ = [
 				'arena_config' => ['api' => '/arenaapioutput.json',
-					'matchId' => '', 'text' => $labels, 'maps' => \AgentArena\Game\ArenaRules::maps()],
+					'matchId' => '', 'text' => $labels, 'maps' => \Base3\AgentArena\Game\ArenaRules::maps()],
 				'arena_css' => '/assets/arena.css',
 				'arena_js' => '/assets/arena.js'
 			];

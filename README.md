@@ -1,6 +1,6 @@
 # Agent Arena 0.3.0: vollständiges Spiel
 
-Agent Arena ist ein eingebettetes BASE3-Taktikspiel. Das Spiel wird durch `AgentArena\Display\AgentArenaDisplay` (`IDisplay`) dargestellt. Die Simulation besitzt feste serverseitige Regeln. Der LLM-Agent **NEXUS** spielt ausschließlich über eine MissionBay-AgentResource (`IAgentTool`), die zwei Funktionen anbietet.
+Agent Arena ist ein eingebettetes BASE3-Taktikspiel. Das Spiel wird durch `Base3\AgentArena\Display\AgentArenaDisplay` (`IDisplay`) dargestellt. Die Simulation besitzt feste serverseitige Regeln. Der LLM-Agent **NEXUS** spielt ausschließlich über eine MissionBay-AgentResource (`IAgentTool`), die zwei Funktionen anbietet.
 
 ## Spielinhalt
 
@@ -12,14 +12,14 @@ Agent Arena ist ein eingebettetes BASE3-Taktikspiel. Das Spiel wird durch `Agent
 
 ## Installation
 
-Am BASE3-Projektroot, dessen Plugin-Suche `plugin/` umfasst:
+Am ILIAS-11-Projektroot mit BASE3 unter `components/Base3/`:
 
 ```sh
-unzip -o agentarena_0.3.0_final_patch.zip
-php plugin/AgentArena/test/run.php
+unzip -o base3-ilias11-namespace-patch.zip
+php components/Base3/AgentArena/test/run.php
 
 # Nur falls aus einem sehr alten Stand vor 0.1.2 aktualisiert wird:
-sh plugin/AgentArena/install/remove-obsolete-tool-files.sh
+sh components/Base3/AgentArena/install/remove-obsolete-tool-files.sh
 ```
 
 Bei einem eingebetteten Host muss die Plugin-Ablage mit dessen bereits bestehender ClassMap- und Asset-Auflösung übereinstimmen. Keine zusätzliche Router- oder Bootstrap-Implementierung installieren. Nach dem Entpacken den normalen BASE3-Bootstrap mit aktiviertem DatabaseMigrationRunner ausführen, der `ArenaMatchMigrationProvider` entdeckt.
@@ -30,7 +30,7 @@ Bei einem eingebetteten Host muss die Plugin-Ablage mit dessen bereits bestehend
 - `IDatabase` und `IMigrationRunner`: aktive MySQL-/MariaDB-Verbindung und DatabaseMigrationRunner für die Arena-Tabelle.
 - `IMvcView`, `IAssetResolver`, `ILinkTargetService`, `IRequest`: vorhandene BASE3-Webintegration.
 - `IAgentConfigurationService` und `IAgentExecutionService`: Agent-Konfiguration und Runtime-Router aus der aktuellen AssistantFoundation-/MissionBay-/AssistantRuntime-Komposition.
-- `MissionBay\Api\IAgentTool` und `MissionBay\Api\IAgentResource`: die einzelne Toolklasse `ArenaAgentTool` wird durch die normale ClassMap entdeckt und bietet beide Funktionen an. Profilverwaltung ausschliesslich in MissionBay.
+- `Base3\MissionBay\Api\IAgentTool` und `Base3\MissionBay\Api\IAgentResource`: die einzelne Toolklasse `ArenaAgentTool` wird durch die normale ClassMap entdeckt und bietet beide Funktionen an. Profilverwaltung ausschliesslich in MissionBay.
 
 **Quellstand:** Die Schnittstellen wurden gegen AssistantFoundation 4.18.0 und MissionBay 4.40.0 abgeglichen. Der Benutzer hat die vorherige Arena-Version 0.2.1 im ILIAS-Host als funktionierend bestaetigt. Die neuen Funktionen von 0.3.0 sind dort noch nicht getestet.
 
@@ -71,8 +71,8 @@ Die Oberfläche speichert keinen Spielzustand außerhalb der Datenbank. Der auss
 
 Das Plugin stellt genau **einen** discoverbaren Ressourcentyp bereit:
 `ArenaAgentTool` (`getName() = arenaagenttool`). Er erweitert
-`MissionBay\Resource\AbstractAgentResource` (implementiert bereits `IAgentResource`)
-und implementiert `MissionBay\Api\IAgentTool`.
+`Base3\MissionBay\Resource\AbstractAgentResource` (implementiert bereits `IAgentResource`)
+und implementiert `Base3\MissionBay\Api\IAgentTool`.
 
 `getToolDefinitions()` liefert zwei eigenstaendige Funktionsdefinitionen:
 
@@ -206,7 +206,7 @@ bedienbar bleibt. Dadurch sind die menschlichen Einheiten sofort nach Start,
 Fortsetzen, eigenem Zug und NEXUS-Zug wieder auswaehlbar. Die Animationen werden
 nicht durch ein zweites Rendern im `finally`-Block abgebrochen.
 
-Regressionstest ohne Host: `node plugin/AgentArena/test/Display/ArenaBoardInteractionSmoke.js`.
+Regressionstest ohne Host: `node components/Base3/AgentArena/test/Display/ArenaBoardInteractionSmoke.js`.
 Der bestehende PHP-Smoketest bleibt separat ausfuehrbar und erfordert kein Node.js.
 
 ## Vorbereitung historischer Datenbankmigrationen

@@ -1,24 +1,26 @@
 <?php declare(strict_types=1);
 
-/** PHPUnit bootstrap; uses the installed BASE3 and Foundation sources, never starts a host request. */
-$projectRoot = dirname(__DIR__, 3);
-$vendor = $projectRoot . '/vendor/autoload.php';
-if (is_file($vendor)) { require_once $vendor; }
+/** Test-only autoloading for the installed ILIAS 11 components/Base3 module tree. */
+$moduleRoot = dirname(__DIR__);
+$modulesRoot = dirname($moduleRoot);
+$iliasRoot = dirname($modulesRoot, 2);
+$vendor = $iliasRoot . '/vendor/autoload.php';
+if (is_file($vendor)) require_once $vendor;
 
 $prefixes = [
-	'AgentArena\\Test\\' => __DIR__ . '/',
-	'AgentArena\\' => dirname(__DIR__) . '/src/',
-	'Base3\\' => $projectRoot . '/Base3Framework/src/',
-	'AssistantFoundation\\' => $projectRoot . '/plugin/AssistantFoundation/src/',
-	'MissionBay\\' => $projectRoot . '/plugin/MissionBay/src/'
+	'Base3\\AgentArena\\Test\\' => __DIR__ . '/',
+	'Base3\\AgentArena\\' => $moduleRoot . '/src/',
+	'Base3\\CoreFoundation\\' => $modulesRoot . '/CoreFoundation/src/',
+	'Base3\\AssistantFoundation\\' => $modulesRoot . '/AssistantFoundation/src/',
+	'Base3\\MissionBay\\' => $modulesRoot . '/MissionBay/src/'
 ];
 spl_autoload_register(static function(string $class) use ($prefixes): void {
-	foreach ($prefixes as $prefix => $path) {
-		if (!str_starts_with($class, $prefix)) { continue; }
-		$file = $path . str_replace('\\', '/', substr($class, strlen($prefix))) . '.php';
-		if (is_file($file)) { require_once $file; }
+	foreach ($prefixes as $prefix => $directory) {
+		if (!str_starts_with($class, $prefix)) continue;
+		$file = $directory . str_replace('\\', '/', substr($class, strlen($prefix))) . '.php';
+		if (is_file($file)) require_once $file;
 		return;
 	}
 });
 
-if (!defined('DIR_PLUGIN')) { define('DIR_PLUGIN', $projectRoot . '/plugin/'); }
+if (!defined('DIR_PLUGIN')) define('DIR_PLUGIN', $modulesRoot . '/');

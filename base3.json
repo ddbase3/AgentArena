@@ -1,13 +1,13 @@
 {
-    "manifestVersion": 1,
-    "name": "AgentArena",
-    "namespace": "AgentArena",
-    "version": "0.3.1",
-    "description": "Tactical LLM-versus-human game embedded as a BASE3 display.",
-    "license": "GPL-3.0-or-later",
-    "dependencies": {
-        "Base3Framework": ">=4.10.0",
-        "AssistantFoundation": ">=4.18.0",
-        "MissionBay": ">=4.40.0"
-    }
+	"manifestVersion": 1,
+	"name": "AgentArena",
+	"namespace": "Base3\\AgentArena",
+	"version": "0.3.1",
+	"description": "Tactical LLM-versus-human game embedded as a BASE3 display.",
+	"license": "GPL-3.0-or-later",
+	"dependencies": {
+		"AssistantFoundation": ">=4.18.0",
+		"CoreFoundation": ">=4.10.0",
+		"MissionBay": ">=4.40.0"
+	}
 }

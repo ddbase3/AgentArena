@@ -1,8 +1,23 @@
 <?php declare(strict_types=1);
 
-namespace AgentArena\Test\Fixture;
+/***********************************************************************
+ * This file is part of AgentArena for BASE3 Framework.
+ *
+ * AgentArena implements a tactical LLM-versus-human game for BASE3.
+ * It provides authoritative rules, match storage and game displays.
+ * MissionBay integrates the agent through the existing tool contracts.
+ *
+ * Developed by Daniel Dahme
+ * Licensed under GPL-3.0-or-later
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * https://base3.de
+ ***********************************************************************/
 
-use Base3\Database\Api\IDatabase;
+
+namespace Base3\AgentArena\Test\Fixture;
+
+use Base3\CoreFoundation\Database\Api\IDatabase;
 use PHPUnit\Framework\MockObject\MockObject;
 use RuntimeException;
 

@@ -1,12 +1,27 @@
 <?php declare(strict_types=1);
 
-namespace AgentArena\Tool;
+/***********************************************************************
+ * This file is part of AgentArena for BASE3 Framework.
+ *
+ * AgentArena implements a tactical LLM-versus-human game for BASE3.
+ * It provides authoritative rules, match storage and game displays.
+ * MissionBay integrates the agent through the existing tool contracts.
+ *
+ * Developed by Daniel Dahme
+ * Licensed under GPL-3.0-or-later
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * https://base3.de
+ ***********************************************************************/
 
-use AgentArena\Service\ArenaGameService;
-use AssistantFoundation\Api\IAgentToolProfileProvider;
-use AssistantFoundation\Api\IAgentToolSet;
-use AssistantFoundation\Dto\AgentExecutionRequest;
-use Base3\Api\IMvcView;
+
+namespace Base3\AgentArena\Tool;
+
+use Base3\AgentArena\Service\ArenaGameService;
+use Base3\AssistantFoundation\Api\IAgentToolProfileProvider;
+use Base3\AssistantFoundation\Api\IAgentToolSet;
+use Base3\AssistantFoundation\Dto\AgentExecutionRequest;
+use Base3\CoreFoundation\Api\IMvcView;
 use RuntimeException;
 
 /** Native AssistantFoundation tool-profile extension for run-scoped Arena tools. */

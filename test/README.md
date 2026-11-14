@@ -1,6 +1,6 @@
 # Agent Arena tests
 
-All unit tests and test support code are located in `plugin/AgentArena/test/`.
+All unit tests and test support code are located in `components/Base3/AgentArena/test/`.
 Each PHP test or fixture file declares at most one named type. Production code
 in `src/` is unchanged by the test-only patch.
 
@@ -12,13 +12,13 @@ version. There are no PHPUnit-specific compatibility branches.
 From the BASE3 project root:
 
 ```sh
-php vendor/bin/phpunit -c plugin/AgentArena/test/phpunit.xml
+php vendor/bin/phpunit -c components/Base3/AgentArena/test/phpunit.xml
 ```
 
 Or, when using a globally installed PHPUnit binary:
 
 ```sh
-phpunit -c plugin/AgentArena/test/phpunit.xml
+phpunit -c components/Base3/AgentArena/test/phpunit.xml
 ```
 
 For explicit version verification, execute those commands once in a PHP
@@ -29,7 +29,7 @@ assertion and process-isolation APIs.
 ## Project-wide PHPUnit suites
 
 A host-wide runner such as `make test-issues` may discover these tests without
-loading `plugin/AgentArena/test/phpunit.xml`. The four tests that rely on
+loading `components/Base3/AgentArena/test/phpunit.xml`. The four tests that rely on
 `DIR_PLUGIN` therefore include the **same existing** `test/bootstrap.php` when
 their test classes are loaded. This also works for PHPUnit's isolated API
 processes and does not initialize an ILIAS request, create a new bootstrap,
@@ -44,11 +44,11 @@ AgentArena test patch and must be resolved in its owning test if needed.
 For a real line-coverage report, enable Xdebug or PCOV and run:
 
 ```sh
-XDEBUG_MODE=coverage php vendor/bin/phpunit -c plugin/AgentArena/test/phpunit.xml --coverage-text
-XDEBUG_MODE=coverage php vendor/bin/phpunit -c plugin/AgentArena/test/phpunit.xml --coverage-html /tmp/agentarena-coverage
+XDEBUG_MODE=coverage php vendor/bin/phpunit -c components/Base3/AgentArena/test/phpunit.xml --coverage-text
+XDEBUG_MODE=coverage php vendor/bin/phpunit -c components/Base3/AgentArena/test/phpunit.xml --coverage-html /tmp/agentarena-coverage
 ```
 
-Coverage is counted only for `plugin/AgentArena/src/`, as configured in
+Coverage is counted only for `components/Base3/AgentArena/src/`, as configured in
 `phpunit.xml`. The JavaScript UI regression smoke is separate from PHP line
 coverage. The source-based game, service, repository, API, permissions, tools,
 DI and migration tests aim for high coverage, but a percentage is only valid
@@ -60,8 +60,8 @@ silently skipped to inflate a percentage.
 These already-shipped checks do not require a host or a model call:
 
 ```sh
-php plugin/AgentArena/test/run.php
-node plugin/AgentArena/test/Display/ArenaBoardInteractionSmoke.js
+php components/Base3/AgentArena/test/run.php
+node components/Base3/AgentArena/test/Display/ArenaBoardInteractionSmoke.js
 ```
 
 ## Runtime boundaries

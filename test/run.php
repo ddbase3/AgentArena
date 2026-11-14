@@ -3,7 +3,7 @@
 /** Standalone deterministic smoke suite, usable without PHPUnit or an installed BASE3 host. */
 require __DIR__ . '/../src/Game/ArenaRules.php';
 
-use AgentArena\Game\ArenaRules;
+use Base3\AgentArena\Game\ArenaRules;
 
 $assert = static function(bool $condition, string $message): void {
 	if (!$condition) { throw new RuntimeException($message); }
@@ -121,7 +121,7 @@ $reject(static fn() => ArenaRules::replayFrames(ArenaRules::create(str_repeat('a
 	'no replay for unfinished match');
 
 require __DIR__ . '/Game/ArenaRandomizedReplaySmoke.php';
-\AgentArena\Test\Game\ArenaRandomizedReplaySmoke::run();
+\Base3\AgentArena\Test\Game\ArenaRandomizedReplaySmoke::run();
 require __DIR__ . '/Display/ArenaUiSmoke.php';
-\AgentArena\Test\Display\ArenaUiSmoke::run();
+\Base3\AgentArena\Test\Display\ArenaUiSmoke::run();
 echo "Arena rules, full match replays and UI smoke tests passed\n";

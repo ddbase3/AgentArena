@@ -1,9 +1,24 @@
 <?php declare(strict_types=1);
 
-namespace AgentArena\Test\Agent;
+/***********************************************************************
+ * This file is part of AgentArena for BASE3 Framework.
+ *
+ * AgentArena implements a tactical LLM-versus-human game for BASE3.
+ * It provides authoritative rules, match storage and game displays.
+ * MissionBay integrates the agent through the existing tool contracts.
+ *
+ * Developed by Daniel Dahme
+ * Licensed under GPL-3.0-or-later
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * https://base3.de
+ ***********************************************************************/
 
-use AgentArena\Agent\NexusAgentDefinition;
-use AssistantFoundation\Api\IAgentDefinition;
+
+namespace Base3\AgentArena\Test\Agent;
+
+use Base3\AgentArena\Agent\NexusAgentDefinition;
+use Base3\AssistantFoundation\Api\IAgentDefinition;
 use PHPUnit\Framework\TestCase;
 
 final class NexusAgentDefinitionTest extends TestCase {

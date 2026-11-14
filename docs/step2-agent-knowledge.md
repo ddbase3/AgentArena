@@ -47,8 +47,8 @@ Der Vollbildmodus verwendet die Browser-Fullscreen-API für das vorhandene Arena
 ## Testen
 
 1. `unzip -o agentarena_step2_patch.zip` am BASE3-Projektroot.
-2. Falls das alte Bereinigungsskript noch nicht gelaufen ist, `sh plugin/AgentArena/install/remove-obsolete-tool-files.sh` einmal ausführen.
-3. `php plugin/AgentArena/test/run.php` für die deterministischen Tests.
+2. Falls das alte Bereinigungsskript noch nicht gelaufen ist, `sh components/Base3/AgentArena/install/remove-obsolete-tool-files.sh` einmal ausführen.
+3. `php components/Base3/AgentArena/test/run.php` für die deterministischen Tests.
 4. In der vorhandenen Agentenadministration prüfen: NEXUS aktiviert, Tool-Profil `arena-agent-tool-profile` ausgewählt, ein Preset `arena-agent-tool` mit Typ `arenaagenttool`.
 5. Eine Partie starten, zwei unterschiedliche menschliche Züge spielen, anschließend in den Tool-Resultaten `tactical_briefing` und die beobachteten Aktionen prüfen.
 6. Optional mit PDF-Sammlung testen: im konfigurierten File-Owner `agent/agentarena.opponent` zwei PDFs ablegen und die Provider-Dateifähigkeit nachweisen, nicht aus der Anzeige allein schließen.

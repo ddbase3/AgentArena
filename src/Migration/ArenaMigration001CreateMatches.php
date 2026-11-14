@@ -1,11 +1,26 @@
 <?php declare(strict_types=1);
 
-namespace AgentArena\Migration;
+/***********************************************************************
+ * This file is part of AgentArena for BASE3 Framework.
+ *
+ * AgentArena implements a tactical LLM-versus-human game for BASE3.
+ * It provides authoritative rules, match storage and game displays.
+ * MissionBay integrates the agent through the existing tool contracts.
+ *
+ * Developed by Daniel Dahme
+ * Licensed under GPL-3.0-or-later
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * https://base3.de
+ ***********************************************************************/
 
-use Base3\Database\Api\IDatabase;
-use Base3\Migration\Api\IDatabaseMigration;
-use Base3\Migration\Api\ILegacyDatabaseMigration;
-use Base3\Migration\Exception\MigrationException;
+
+namespace Base3\AgentArena\Migration;
+
+use Base3\CoreFoundation\Database\Api\IDatabase;
+use Base3\CoreFoundation\Migration\Api\IDatabaseMigration;
+use Base3\CoreFoundation\Migration\Api\ILegacyDatabaseMigration;
+use Base3\CoreFoundation\Migration\Exception\MigrationException;
 
 /** Initial, immutable MySQL/MariaDB schema for authoritative match state. */
 final class ArenaMigration001CreateMatches implements IDatabaseMigration, ILegacyDatabaseMigration {

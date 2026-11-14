@@ -9,7 +9,7 @@
 - `ArenaGameService` und `ArenaMatchRepository`: einziges Eigentum an autoritativen Match-Zuständen, unveränderliche Revision und atomarer CAS pro Schritt.
 - `IAgentConfigurationService`: effektive NEXUS-Konfiguration; keine direkten Agenten-SettingsStore-Schreibvorgänge.
 - `IAgentExecutionService`: die vorhandene AssistantRuntime-Routing-API führt MissionBay aus.
-- `MissionBay\Api\IAgentTool` und `MissionBay\Api\IAgentResource`: genau ein Resource-Typ `arenaagenttool` mit zwei getrennten Funktionsdefinitionen, discoverbar ueber die ClassMap. Die vorhandene MissionBay-Profilverwaltung konfiguriert ein Preset und ein Tool-Profil. Keine zweite Tool-Runtime.
+- `Base3\MissionBay\Api\IAgentTool` und `Base3\MissionBay\Api\IAgentResource`: genau ein Resource-Typ `arenaagenttool` mit zwei getrennten Funktionsdefinitionen, discoverbar ueber die ClassMap. Die vorhandene MissionBay-Profilverwaltung konfiguriert ein Preset und ein Tool-Profil. Keine zweite Tool-Runtime.
 - `IRequest`: nur POST, browsernachgewiesene Same-Origin-JSON-Requests; keine Plugin-CSRF-Tokenverwaltung.
 
 ## Laufzeitgrenzen

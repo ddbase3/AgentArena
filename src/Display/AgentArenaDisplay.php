@@ -1,13 +1,28 @@
 <?php declare(strict_types=1);
 
-namespace AgentArena\Display;
+/***********************************************************************
+ * This file is part of AgentArena for BASE3 Framework.
+ *
+ * AgentArena implements a tactical LLM-versus-human game for BASE3.
+ * It provides authoritative rules, match storage and game displays.
+ * MissionBay integrates the agent through the existing tool contracts.
+ *
+ * Developed by Daniel Dahme
+ * Licensed under GPL-3.0-or-later
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * https://base3.de
+ ***********************************************************************/
 
-use AgentArena\Service\ArenaAccessService;
-use AgentArena\Game\ArenaRules;
-use Base3\Api\IAssetResolver;
-use Base3\Api\IDisplay;
-use Base3\Api\IMvcView;
-use Base3\LinkTarget\Api\ILinkTargetService;
+
+namespace Base3\AgentArena\Display;
+
+use Base3\AgentArena\Service\ArenaAccessService;
+use Base3\AgentArena\Game\ArenaRules;
+use Base3\CoreFoundation\Api\IAssetResolver;
+use Base3\CoreFoundation\Api\IDisplay;
+use Base3\CoreFoundation\Api\IMvcView;
+use Base3\CoreFoundation\LinkTarget\Api\ILinkTargetService;
 use Throwable;
 
 /** Portable game widget. Hosts embed this IDisplay; the existing link service addresses its JSON output. */
